@@ -45,7 +45,7 @@ nav ul {
   margin: 0.5rem;
 }
 
-nav ul li {
+nav ul li a {
   color: var(--secondary-color);
   font-size: 1rem;
   text-decoration: none;
@@ -125,7 +125,7 @@ button.own-today-button {
   margin-top: 1rem;
   flex-wrap: wrap;
 }
-.upgrades-list .upgrade {
+.upgrades-list a {
   width: calc(50% - 1rem);
   margin: 0.5rem;
   text-align: center;
@@ -141,8 +141,48 @@ button.own-today-button {
   height: 5rem;
 }
 
+#inv-display {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#inv-display li {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#inv-display li:hover {
+  transform: scale(1.05);
+}
+
+#inv-display li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  display: block;
+  text-align: center;
+}
+
+#inv-display li img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+#inv-display li a:hover {
+  color: var(--tertiary-color);
+}
+
 @media screen and (min-width: 768px) {
-  nav ul li {
+  nav ul li a {
     font-size: 1.2rem;
   }
   nav ul {
