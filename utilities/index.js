@@ -77,4 +77,43 @@ Util.buildClassificationGrid = async function (data) {
   return grid;
 };
 
+/*******************************************
+ * Build the details view HTML
+ * **************************************** */
+Util.buildDetailView = async function (data) {
+  let detail = '<div id="inv-detail">';
+  detail +=
+    '<img src="' +
+    data.inv_image +
+    '" alt="Image of ' +
+    data.inv_make +
+    " " +
+    data.inv_model +
+    ' on CSE Motors" />';
+  detail += '<div class="details">';
+  detail +=
+    "<h2>" +
+    data.inv_year +
+    " " +
+    data.inv_make +
+    " " +
+    data.inv_model +
+    "</h2>";
+  detail +=
+    "<h3>Price: $" +
+    new Intl.NumberFormat("en-US").format(data.inv_price) +
+    "</h3>";
+  detail += "<p>" + data.inv_description + "</p>";
+  detail += "<ul>";
+  detail += "<li><strong>Color:</strong> " + data.inv_color + "</li>";
+  detail +=
+    "<li><strong>Mileage:</strong> " +
+    Intl.NumberFormat("en-US").format(data.inv_miles) +
+    "</li>";
+  detail += "</ul>";
+  detail += "</div>";
+  detail += "</div>";
+  return detail;
+};
+
 module.exports = Util;

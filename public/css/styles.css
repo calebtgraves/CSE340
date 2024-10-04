@@ -181,6 +181,62 @@ button.own-today-button {
   color: var(--tertiary-color);
 }
 
+#inv-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#inv-detail img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+#inv-detail .details {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#inv-detail .details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+#inv-detail .details h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--tertiary-color);
+}
+
+#inv-detail .details p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+#inv-detail .details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#inv-detail .details ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+#inv-detail .details ul li strong {
+  font-weight: bold;
+}
+
 @media screen and (min-width: 768px) {
   nav ul li a {
     font-size: 1.2rem;
