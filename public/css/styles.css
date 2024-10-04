@@ -213,7 +213,7 @@ button.own-today-button {
 #inv-detail .details h3 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: var(--tertiary-color);
+  color: var(--primary-color);
 }
 
 #inv-detail .details p {
