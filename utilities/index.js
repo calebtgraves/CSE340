@@ -82,6 +82,7 @@ Util.buildClassificationGrid = async function (data) {
  * **************************************** */
 Util.buildDetailView = async function (data) {
   let detail = '<div id="inv-detail">';
+  detail += "<div>";
   detail +=
     '<img src="' +
     data.inv_image +
@@ -90,7 +91,6 @@ Util.buildDetailView = async function (data) {
     " " +
     data.inv_model +
     ' on CSE Motors" />';
-  detail += '<div class="details">';
   detail +=
     "<h2>" +
     data.inv_year +
@@ -103,6 +103,8 @@ Util.buildDetailView = async function (data) {
     "<h3>Price: $" +
     new Intl.NumberFormat("en-US").format(data.inv_price) +
     "</h3>";
+  detail += "</div>";
+  detail += '<div class="details">';
   detail += "<p>" + data.inv_description + "</p>";
   detail += "<ul>";
   detail += "<li><strong>Color:</strong> " + data.inv_color + "</li>";
