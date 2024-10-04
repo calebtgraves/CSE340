@@ -29,12 +29,18 @@ app.use(static);
 // Index Route
 app.get("/", baseController.buildHome);
 
+app.get("/error", baseController.internalServerError);
+
 // Inventory routes
 app.use("/inv", inventoryRoute);
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({ status: 404, message: "Sorry, we appear to have lost that page." });
+  if (res.statusCode === 500) {
+    next({ status: 500, message: "An internal server occurred." });
+  } else {
+    next({ status: 404, message: "Sorry, we appear to have lost that page." });
+  }
 });
 
 /* ***********************
