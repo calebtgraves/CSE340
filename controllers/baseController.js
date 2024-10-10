@@ -7,9 +7,9 @@ baseController.buildHome = async function (req, res) {
 };
 
 baseController.internalServerError = async function (req, res, next) {
-  const nav = await utilities.getNav();
   //throw 500 error
-  next(new Error("Internal Server Error"));
+  res.status(500);
+  next();
 };
 
 module.exports = baseController;

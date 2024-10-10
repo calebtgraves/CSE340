@@ -240,6 +240,95 @@ button.own-today-button {
   font-weight: bold;
 }
 
+#messages .notice {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 16px;
+  position: relative;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #856404;
+  list-style-type: none;
+}
+
+#messages .notice li {
+  color: #856404;
+  margin: 5px;
+}
+
+.login,
+.registration {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-color);
+}
+
+.login h2,
+.registration h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--tertiary-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--secondary-color);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  filter: brightness(70%);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group input:invalid:not(:focus):not(:placeholder-shown) {
+  border: red 3px solid;
+}
+
+.form-group input:valid {
+  border: green 3px solid;
+}
+
+.form-group input:focus {
+  outline: none;
+}
+
 @media screen and (min-width: 768px) {
   nav ul li a {
     font-size: 1.2rem;
