@@ -1,0 +1,48 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!--messages-->
+<%- messages() %>
+
+<!-- add inventory view-->
+<div class="add-inventory">
+  <form action="/inv/management/add-inventory" method="post">
+    <div class="form-group">
+      <label for="inv_year">Year</label>
+      <input type="number" id="inv_year" name="inv_year" placeholder="Enter Inventory Year..." required>
+    </div>
+    <div class="form-group">
+      <label for="inv_make">Make</label>
+      <input type="text" id="inv_make" name="inv_make" placeholder="Enter Inventory Make..." required>
+    </div>
+    <div class="form-group">
+      <label for="inv_model">Model</label>
+      <input type="text" id="inv_model" name="inv_model" placeholder="Enter Inventory Model..." required>
+    </div>
+    <div class="form-group">
+      <label for="classification">Classification</label>
+      <%- classification_list %>
+    </div>
+    <div class="form-group">
+      <label for="inv_miles">Mileage</label>
+      <input type="number" id="inv_miles" name="inv_miles" placeholder="Enter Inventory Mileage..." required>
+    </div>
+    <div class="form-group">
+      <label for="inv_description">Description</label>
+      <textarea id="inv_description" name="inv_description" placeholder="Enter Inventory Description..." required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="inv_color">Color</label>
+      <input type="text" id="inv_color" name="inv_color" placeholder="Enter Inventory Color..." required>
+    </div>
+    <div class="form-group">
+      <label for="inv_price">Price</label>
+      <input type="number" id="inv_price" name="inv_price" placeholder="Enter Inventory Price..." required>
+    </div>
+    <div class="form-group">
+      <button type="submit">Add Inventory</button>
+    </div>
+  </form>

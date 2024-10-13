@@ -30,10 +30,6 @@ async function buildRegister(req, res, next) {
  * *************************************** */
 async function registerAccount(req, res) {
   let nav = await utilities.getNav();
-  console.log(
-    ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",
-    req.body
-  );
   const {
     account_firstname,
     account_lastname,

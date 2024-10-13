@@ -258,7 +258,9 @@ button.own-today-button {
 }
 
 .login,
-.registration {
+.registration,
+.add-classification,
+.add-inventory {
   width: 100%;
   max-width: 500px;
   margin: 50px auto;
@@ -270,7 +272,9 @@ button.own-today-button {
 }
 
 .login h2,
-.registration h2 {
+.registration h2,
+.add-classification h2,
+.add-inventory h2 {
   text-align: center;
   margin-bottom: 20px;
   color: var(--primary-color);
@@ -286,12 +290,19 @@ button.own-today-button {
   color: var(--primary-color);
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea,
+.form-group select {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
   box-sizing: border-box;
+  font-family: "Arial";
+}
+
+.form-group textarea {
+  resize: vertical;
 }
 
 .form-group button {
@@ -309,24 +320,16 @@ button.own-today-button {
   filter: brightness(70%);
 }
 
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.form-group input:invalid:not(:focus):not(:placeholder-shown) {
+.form-group input:invalid:not(:focus):not(:placeholder-shown),
+.form-group textarea:invalid:not(:focus):not(:placeholder-shown),
+.form-group select:invalid:not(:focus):not(:placeholder-shown) {
   border: red 3px solid;
 }
 
-.form-group input:valid {
+.form-group input:valid,
+.form-group textarea:valid,
+.form-group select:valid {
   border: green 3px solid;
-}
-
-.form-group input:focus {
-  outline: none;
 }
 
 @media screen and (min-width: 768px) {
