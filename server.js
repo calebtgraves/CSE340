@@ -17,6 +17,7 @@ const utilities = require("./utilities");
 const session = require("express-session");
 const pool = require("./database/");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 /* ***********************
  * Middleware
@@ -33,6 +34,8 @@ app.use(
     name: "sessionId",
   })
 );
+
+app.use(cookieParser());
 
 // Express Messages Middleware
 app.use(require("connect-flash")());
