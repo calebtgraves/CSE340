@@ -152,6 +152,18 @@ async function updateInventory(
 }
 
 /* ***************************
+ *  Delete Inventory Data
+ * ************************** */
+async function deleteInventory(inv_id) {
+  try {
+    const sql = "DELETE FROM public.inventory WHERE inv_id = $1";
+    return await pool.query(sql, [inv_id]);
+  } catch (error) {
+    console.error("deleteInventory error " + error);
+  }
+}
+
+/* ***************************
  *  Export model functions
  * ************************** */
 module.exports = {
@@ -162,4 +174,5 @@ module.exports = {
   createInventory,
   getInventoryById,
   updateInventory,
+  deleteInventory,
 };
