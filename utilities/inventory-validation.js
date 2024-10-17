@@ -71,6 +71,23 @@ validate.newInventoryRules = () => {
       .notEmpty()
       .isInt()
       .withMessage("Classification is required and must be a number."),
+    body("inv_color")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isAlphanumeric()
+      .withMessage("Color is required and must be alphanumeric."),
+    body("inv_miles")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Miles is required and must be a number."),
+    body("inv_description")
+      .trim()
+      .escape()
+      .notEmpty()
+      .withMessage("Description is required and must be text."),
   ];
 };
 
@@ -84,6 +101,79 @@ validate.checkInventory = async (req, res, next) => {
     let nav = await utilities.getNav();
     res.render("./inventory/add-inventory", {
       title: "Add Inventory",
+      nav,
+      classification_list,
+      errors: errors.array(),
+    });
+  }
+  next();
+};
+
+validate.updateInventoryRules = () => {
+  return [
+    body("inv_make")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isAlphanumeric()
+      .withMessage("Make is required and must be alphanumeric."),
+    body("inv_model")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isAlphanumeric()
+      .withMessage("Model is required and must be alphanumeric."),
+    body("inv_year")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Year is required and must be a number."),
+    body("inv_price")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Price is required and must be a number."),
+    body("classification_id")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Classification is required and must be a number."),
+    body("inv_color")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isAlphanumeric()
+      .withMessage("Color is required and must be alphanumeric."),
+    body("inv_miles")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Miles is required and must be a number."),
+    body("inv_description")
+      .trim()
+      .escape()
+      .notEmpty()
+      .withMessage("Description is required and must be text."),
+    body("inv_id")
+      .trim()
+      .escape()
+      .notEmpty()
+      .isInt()
+      .withMessage("Inventory ID is required and must be a number."),
+  ];
+};
+
+validate.checkUpdateData = async (req, res, next) => {
+  const errors = validationResult(req);
+  const classification_list = await utilities.buildClassificationList();
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    res.render("./inventory/update-inventory", {
+      title: "Update Inventory",
       nav,
       classification_list,
       errors: errors.array(),

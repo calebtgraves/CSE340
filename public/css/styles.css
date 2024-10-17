@@ -292,7 +292,8 @@ button.own-today-button {
 
 .form-group input,
 .form-group textarea,
-.form-group select {
+.form-group select,
+select {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--primary-color);
@@ -320,6 +321,15 @@ button.own-today-button {
   filter: brightness(70%);
 }
 
+.form-group button:disabled {
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+.form-group button:disabled:hover {
+  filter: grayscale(100%);
+}
+
 .form-group input:invalid:not(:focus):not(:placeholder-shown),
 .form-group textarea:invalid:not(:focus):not(:placeholder-shown),
 .form-group select:invalid:not(:focus):not(:placeholder-shown) {
@@ -330,6 +340,41 @@ button.own-today-button {
 .form-group textarea:valid,
 .form-group select:valid {
   border: green 3px solid;
+}
+
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--secondary-color);
+}
+
+#inventoryDisplay thead {
+  background-color: var(--primary-color);
+}
+
+#inventoryDisplay th {
+  color: var(--secondary-color);
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid var(--primary-color);
+}
+
+#inventoryDisplay tbody tr {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+#inventoryDisplay a {
+  color: var(--tertiary-color);
+  text-decoration: none;
+}
+
+#inventoryDisplay a:hover {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {
