@@ -3,6 +3,7 @@ const express = require("express");
 const router = new express.Router();
 const accountController = require("../controllers/accountController");
 const accValidate = require("../utilities/account-validation");
+const utilities = require("../utilities");
 
 // Route to build account login view
 router.get("/login", accountController.buildLogin);
@@ -26,5 +27,8 @@ router.post(
   accValidate.checkLoginData,
   accountController.accountLogin
 );
+
+// Base account route
+router.get("/", utilities.checkLogin, accountController.buildAccount);
 
 module.exports = router;

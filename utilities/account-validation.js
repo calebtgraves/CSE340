@@ -96,6 +96,7 @@ validate.checkLoginData = async (req, res, next) => {
   errors = validationResult(req);
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav();
+    res.flash("notice", "Login failed. Please check your email and password.");
     res.render("account/login", {
       errors,
       title: "Login",
