@@ -1,0 +1,46 @@
+<!-- content heading -->
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!--messages-->
+<%- messages() %>
+
+<!-- update account form -->
+<div class="update-account">
+  <form action="/account/update" method="post">
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" id="firstname" name="account_firstname" required value="<%= account_firstname %>">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" id="lastname" name="account_lastname" required value="<%= account_lastname %>">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="account_email" required value="<%= account_email %>">
+    </div>
+    <input type="hidden" name="account_id" value="<%= account_id %>">
+    <div class="form-group">
+      <button type="submit">Update Account</button>
+    </div>
+  </form>
+</div>
+
+<h2>Update Password</h2>
+<!-- update password form -->
+<div class="update-password">
+  <form action="/account/update-password" method="post">
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="account_password" required placeholder="Enter New Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+      <span>This will reset your current password. Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
+    </div>
+    <input type="hidden" name="account_id" value="<%= account_id %>">
+    <div class="form-group">
+      <button type="submit">Update Password</button>
+    </div>
+  </form>

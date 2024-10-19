@@ -155,10 +155,12 @@ Util.checkJWTToken = (req, res, next) => {
         }
         res.locals.accountData = accountData;
         res.locals.loggedin = 1;
+        res.locals.accountType = accountData.account_type;
         next();
       }
     );
   } else {
+    res.locals.loggedin = 0;
     next();
   }
 };
@@ -182,5 +184,23 @@ Util.checkLogin = (req, res, next) => {
  **************************************** */
 Util.handleErrors = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
+
+/* ****************************************
+ * Redirect if not admin or employee
+ * ************************************ */
+Util.employeeOnly = (fn) => (req, res, next) => {
+  if (!res.locals.loggedin) {
+    req.flash("notice", "Please log in to see that page.");
+    return res.redirect("/account/login");
+  }
+  if (
+    res.locals.accountData.account_type == "Admin" ||
+    res.locals.accountData.account_type == "Employee"
+  ) {
+    return fn(req, res, next);
+  }
+  req.flash("notice", "You do not have permission to view that page.");
+  return res.redirect("/account/login");
+};
 
 module.exports = Util;

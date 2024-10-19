@@ -12,13 +12,19 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/detail/:invId", invController.buildDetail);
 
 // Route to build inventory management view
-router.get("/", invController.buildManagement);
+router.get("/", utilities.employeeOnly(invController.buildManagement));
 
 // Route to build classifcation creation view
-router.get("/add-classification", invController.buildAddClassification);
+router.get(
+  "/add-classification",
+  utilities.employeeOnly(invController.buildAddClassification)
+);
 
 // Route to build inventory creation view
-router.get("/add-inventory", invController.buildAddInventory);
+router.get(
+  "/add-inventory",
+  utilities.employeeOnly(invController.buildAddInventory)
+);
 
 // Route to create a new inventory item
 router.post(
@@ -44,7 +50,9 @@ router.get(
 // Route to build inventory edit view
 router.get(
   "/edit/:inv_id",
-  utilities.handleErrors(invController.editInventoryView)
+  utilities.handleErrors(
+    utilities.employeeOnly(invController.editInventoryView)
+  )
 );
 
 // Route to update inventory item
@@ -58,7 +66,9 @@ router.post(
 // Route to build inventory delete confirmation view
 router.get(
   "/delete/:inv_id",
-  utilities.handleErrors(invController.buildDeleteConfirmation)
+  utilities.handleErrors(
+    utilities.employeeOnly(invController.buildDeleteConfirmation)
+  )
 );
 
 // Route to delete inventory item

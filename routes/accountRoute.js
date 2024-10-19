@@ -31,4 +31,32 @@ router.post(
 // Base account route
 router.get("/", utilities.checkLogin, accountController.buildAccount);
 
+// Route to logout
+router.get("/logout", accountController.accountLogout);
+
+//update account page
+router.get(
+  "/update/:id",
+  utilities.checkLogin,
+  accountController.buildUpdateAccountView
+);
+
+//update account
+router.post(
+  "/update",
+  accValidate.updateRules(),
+  accValidate.checkUpdateData,
+  utilities.checkLogin,
+  accountController.updateAccountInfo
+);
+
+//update password
+router.post(
+  "/update-password",
+  accValidate.updatePasswordRules(),
+  accValidate.checkUpdatePasswordData,
+  utilities.checkLogin,
+  accountController.updatePassword
+);
+
 module.exports = router;

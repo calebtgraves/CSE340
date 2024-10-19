@@ -54,6 +54,13 @@ app.use(utilities.checkJWTToken);
  *************************/
 app.set("view engine", "ejs");
 app.use(expressLayouts);
+
+// Middleware to set loggedin
+app.use((req, res, next) => {
+  res.locals.loggedin = req.cookies.jwt ? true : false;
+  next();
+});
+
 app.set("layout", "./layouts/layout"); // not at views root
 
 /* ***********************

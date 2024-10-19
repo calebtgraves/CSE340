@@ -260,7 +260,9 @@ button.own-today-button {
 .login,
 .registration,
 .add-classification,
-.add-inventory {
+.add-inventory,
+.update-account,
+.update-password {
   width: 100%;
   max-width: 500px;
   margin: 50px auto;
@@ -274,7 +276,9 @@ button.own-today-button {
 .login h2,
 .registration h2,
 .add-classification h2,
-.add-inventory h2 {
+.add-inventory h2,
+.update-account h2,
+.update-password h2 {
   text-align: center;
   margin-bottom: 20px;
   color: var(--primary-color);
